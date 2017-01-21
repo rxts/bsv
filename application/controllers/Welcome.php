@@ -24,7 +24,8 @@ class Welcome extends CI_Controller {
 	}
 
 	public function myf() {
-		$this->load->model('WelcomeModel');
-		print_r($this->WelcomeModel->test());
+		$this->load->model('WelcomeModel');		
+	    	$this->output->set_content_type('application/json');
+	    	$this->output->set_output(json_encode(array('test'=> $this->WelcomeModel->test())));
 	}
 }
